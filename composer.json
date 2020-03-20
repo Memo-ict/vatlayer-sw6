@@ -1,0 +1,32 @@
+{
+    "name": "memo/vatlayer-plugin",
+    "description": "Vatlater.com plugin",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Memo ICT",
+            "role": "Manufacturer"
+        }
+    ],
+    "require": {
+        "shopware/core": "6.*"
+    },
+    "extra": {
+        "shopware-plugin-class": "Memo\\VatlayerPlugin\\memoVatlayerPlugin",
+        "label": {
+            "de-DE": "Vatlayer.com VatID check",
+            "en-GB": "Vatlayer.com VatID check"
+        },
+        "description": {
+            "de-DE": "Postcode.nl Plugin\nThis plugin adds autocompletion for Dutch addresses. When entering a billing or shipping address users only need to provide a postal code and house number, all other address fields will be instantly completed!\n\nThe Postcode.nl address API is used to retrieve up-to-date data from official Dutch government databases.\n\nRegistering a postcode.nl account\nThis plugin is free to try out. However, a Postcode.nl subscription is required for production use. Creating an account only takes a few minutes: create an account\n\nAbout Postcode.nl\nEstablished in 1999, Postcode.nl is a trusted and well-known partner for address information in the Netherlands. Postcode.nl supplies databases to government agencies , postal services, utility companies, banks, and insurance companies. The Postcode.nl API is used by thousands of webshops every day. Learn more at www.postcode.nl\n\nWarning: for this service you wille need a API key from Postcode.nl",
+            "en-GB": "Gehen Sie sicher, dass Bestellungen immer der richtigen Adresse zugestellt werden. Kunden in den Niederlanden brauchen lediglich ihre Postleitzahl und Hausnummer auf Ihrer Checkout"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Memo\\VatlayerPlugin\\": "src/"
+        }
+    }
+}

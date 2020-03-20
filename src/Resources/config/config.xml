@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Vatlayer.com API Credentials</title>
+        <title lang="de-DE">Vatlayer.com API Referenzen</title>
+        <input-field>
+            <name>apiKey</name>
+            <label lang="de-DE">API Key</label>
+            <label lang="en-GB">API Key</label>
+            <label lang="nl-NL">API Key</label>
+        </input-field>
+    </card>
+    <card>
+        <title>Shop Settings</title>
+        <title lang="de-DE">Shop Einstellungen</title>
+        <input-field type="bool">
+            <name>vatIdRequired</name>
+            <label lang="de-DE">VAT-ID als Pflichtfeld behandeln</label>
+            <label lang="en-GB">VAT ID required</label>
+            <label lang="nl-NL">BTW ID verplicht</label>
+        </input-field>
+    </card>
+</config>

@@ -1,0 +1,8 @@
+{
+    "memo-postcodenl": {
+        "autocomplete": {
+            "label": "Address",
+            "placeholder": "Start by typing your city, streetname, or zipcode"
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "memo-postcodenl": {
+        "autocomplete": {
+            "label": "Adres",
+            "placeholder": "Begin met uw postcode, plaats of straat"
+        }
+    }
+}
