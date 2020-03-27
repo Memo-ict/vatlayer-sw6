@@ -56,6 +56,10 @@ class VatlayerService
         });
     }
 
+    public function rateList() {
+        return $this->_performApiCall('rate_list');
+    }
+
     public function validate(string $vatId) {
         return $this->_performApiCall('validate', ['vat_number' => $vatId]);
     }
@@ -67,7 +71,7 @@ class VatlayerService
     }
 
     //Taken from Postcode.nl Api Client
-    protected function _performApiCall(string $path, ?array $data): array
+    protected function _performApiCall(string $path, array $data = []): array
     {
         $data['access_key'] = $this->_key;
 
@@ -83,7 +87,7 @@ class VatlayerService
         $curlErrorNr = curl_errno($this->_curlHandler);
         if ($curlError !== '')
         {
-            throw new CurlException(vsprintf('Connection error number `%s`: `%s`.', [$curlErrorNr, $curlError]));
+            throw new \CurlException(vsprintf('Connection error number `%s`: `%s`.', [$curlErrorNr, $curlError]));
         }
 
         // Parse the response as JSON, will be null if not parsable JSON.

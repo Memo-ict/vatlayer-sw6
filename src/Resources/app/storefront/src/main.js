@@ -12,7 +12,7 @@ import HttpClient from 'src/service/http-client.service';
             self.find('input[name*="vatId"]').on('blur', function(e) {
                 var me = $(e.target);
                 if(me.val().length > 0) {
-                    self.client.get('/api/v1/memo/vatlayer/' + me.val(), function(data) {
+                    self.client.get('/api/v1/memo/vatlayer/check-id' + me.val(), function(data) {
                         const json = JSON.parse(data);
 
                         console.log(self.siblings('.alert').filter('.alert-' + json.message.type));

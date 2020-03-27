@@ -2,14 +2,13 @@
 
 namespace Memo\VatlayerPlugin\Controllers;
 
+use Memo\VatlayerPlugin\Services\VatlayerService;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Shopware\Core\Framework\Context;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
-use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 
 use Shopware\Core\Defaults;
 
@@ -23,13 +22,38 @@ class VatlayerController extends AbstractController
      */
     private $vatlayerService;
 
-    public function __construct(\Memo\VatlayerPlugin\Services\VatlayerService $vatlayerService)
+    public function __construct(VatlayerService $vatlayerService)
     {
         $this->vatlayerService = $vatlayerService;
     }
 
     /**
-     * @Route("api/v{version}/memo/vatlayer/{id}", name="storefront.memo.vatlayer.vatid-check", methods={"GET"}, defaults={"auth_required"=false})
+     * @Route(
+     *     "api/v{version}/memo/vatlayer/check-credentials",
+     *     name="storefront.memo.vatlayer.check-credentials",
+     *     methods={"GET"}
+     *     )
+     */
+    public function checkCredentials(Request $request, Context $context): JsonResponse
+    {
+        try {
+            $response = $this->vatlayerService->rateList();
+
+            return new JsonResponse([
+                'valid' => true,
+                'message' => "Your credentials are valid"
+            ], 400);
+        }
+        catch(\Exception $e) {
+            return new JsonResponse([
+                'valid' => false,
+                'message' => $e->getMessage()
+            ], 400);
+        }
+    }
+
+    /**
+     * @Route("api/v{version}/memo/vatlayer/check-id/{id}", name="storefront.memo.vatlayer.vatid-check", methods={"GET"}, defaults={"auth_required"=false})
      */
     public function vatIdCheck(Request $request, Context $context): JsonResponse
     {
@@ -39,18 +63,6 @@ class VatlayerController extends AbstractController
         $message = [];
         try {
             $response = $this->vatlayerService->validate($id);
-
-            // This is a test response
-//            $response = [
-//                "valid" => true,
-//                "database" => "ok",
-//                "format_valid" => true,
-//                "query" => "NL001402656B40",
-//                "country_code" => "NL",
-//                "vat_number" => "001402656B40",
-//                "company_name" => "MEMO ICT",
-//                "company_address" => "\nKALKWARK 00014\n7881LW EMMER-COMPASCUUM\n",
-//            ];
 
             // Dit nog omzetten naar vertaalbare snippets, but how?
             if($response['database'] !== "ok") {
