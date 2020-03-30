@@ -42,7 +42,7 @@ class VatlayerController extends AbstractController
             return new JsonResponse([
                 'valid' => true,
                 'message' => "Your credentials are valid"
-            ], 400);
+            ]);
         }
         catch(\Exception $e) {
             return new JsonResponse([
