@@ -16,7 +16,7 @@
         {% endblock %}
 
         {% block component_address_form_company_vatId_input %}
-            <div class="vatlayer">
+            <div class="vatlayer" data-base-url="{{ app.request.baseUrl }}">
                 <input type="text"
                        class="form-control{% if violationPath %} is-invalid{% endif %}"
                        id="{{ prefix }}vatId"
