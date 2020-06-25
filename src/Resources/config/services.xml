@@ -5,21 +5,21 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="Memo\VatlayerPlugin\Services\VatlayerService">
+        <service id="Memo\Vatlayer\Services\VatlayerService">
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
         </service>
 
-        <service id="Memo\VatlayerPlugin\Controllers\VatlayerController" public="true">
-            <argument type="service" id="Memo\VatlayerPlugin\Services\VatlayerService" />
+        <service id="Memo\Vatlayer\Controllers\VatlayerController" public="true">
+            <argument type="service" id="Memo\Vatlayer\Services\VatlayerService" />
         </service>
 
-        <service id="Memo\VatlayerPlugin\Resources\snippet\de_DE\SnippetFile_de_DE" public="true">
+        <service id="Memo\Vatlayer\Resources\snippet\de_DE\SnippetFile_de_DE" public="true">
             <tag name="shopware.snippet.file"/>
         </service>
-        <service id="Memo\VatlayerPlugin\Resources\snippet\en_GB\SnippetFile_en_GB" public="true">
+        <service id="Memo\Vatlayer\Resources\snippet\en_GB\SnippetFile_en_GB" public="true">
             <tag name="shopware.snippet.file"/>
         </service>
-        <service id="Memo\VatlayerPlugin\Resources\snippet\nl_NL\SnippetFile_nl_NL" public="true">
+        <service id="Memo\Vatlayer\Resources\snippet\nl_NL\SnippetFile_nl_NL" public="true">
             <tag name="shopware.snippet.file"/>
         </service>
     </services>

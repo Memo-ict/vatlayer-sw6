@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Memo\VatlayerPlugin\Resources\snippet\en_GB;
+namespace Memo\Vatlayer\Resources\snippet\en_GB;
 
 use Shopware\Core\System\Snippet\Files\SnippetFileInterface;
 

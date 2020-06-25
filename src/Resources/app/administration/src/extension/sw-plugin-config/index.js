@@ -21,7 +21,7 @@ Component.override('sw-plugin-config', {
     computed: {
         isVatlayerPlugin()
         {
-            return 'memoVatlayerPlugin' === this.$route.params.namespace;
+            return 'MemoVatlayer6' === this.$route.params.namespace;
         }
     },
 

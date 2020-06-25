@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Memo\VatlayerPlugin\Controllers;
+namespace Memo\Vatlayer\Controllers;
 
-use Memo\VatlayerPlugin\Services\VatlayerService;
+use Memo\Vatlayer\Services\VatlayerService;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Shopware\Core\Framework\Context;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,7 +18,7 @@ use Shopware\Core\Defaults;
 class VatlayerController extends AbstractController
 {
     /**
-     * @var \Memo\VatlayerPlugin\Services\VatlayerService
+     * @var \Memo\Vatlayer\Services\VatlayerService
      */
     private $vatlayerService;
 

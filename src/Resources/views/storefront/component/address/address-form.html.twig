@@ -11,7 +11,7 @@
         {% block component_address_form_company_vatId_label %}
             <label class="form-label"
                    for="{{ prefix }}vatId">
-                {{ "address.companyVatLabel"|trans|sw_sanitize }}{% if shopware.config.memoVatlayerPlugin.config.vatIdRequired %}{{ "general.required"|trans|sw_sanitize }}{% endif %}
+                {{ "address.companyVatLabel"|trans|sw_sanitize }}{% if shopware.config.MemoVatlayer6.config.vatIdRequired %}{{ "general.required"|trans|sw_sanitize }}{% endif %}
             </label>
         {% endblock %}
 
@@ -20,8 +20,8 @@
                 <input type="text"
                        class="form-control{% if violationPath %} is-invalid{% endif %}"
                        id="{{ prefix }}vatId"
-                       {% if shopware.config.memoVatlayerPlugin.config.vatIdRequired %}required="required"{% endif %}
-                       placeholder="{{ "address.companyVatPlaceholder"|trans|striptags }}{% if shopware.config.memoVatlayerPlugin.config.vatIdRequired %}{{ "general.required"|trans|sw_sanitize }}{% endif %}"
+                       {% if shopware.config.MemoVatlayer6.config.vatIdRequired %}required="required"{% endif %}
+                       placeholder="{{ "address.companyVatPlaceholder"|trans|striptags }}{% if shopware.config.MemoVatlayer6.config.vatIdRequired %}{{ "general.required"|trans|sw_sanitize }}{% endif %}"
                        name="{{ prefix }}[vatId]"
                        value="{{ data.get('vatId') }}">
             </div>

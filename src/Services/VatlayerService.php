@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Memo\VatlayerPlugin\Services;
+namespace Memo\Vatlayer\Services;
 
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 
@@ -21,7 +21,7 @@ class VatlayerService
     public function __construct(SystemConfigService $configService)
     {
         $this->configService = $configService;
-        $this->_key = (string) $configService->get("memoVatlayerPlugin.config.apiKey");
+        $this->_key = (string) $configService->get("MemoVatlayer6.config.apiKey");
 
         //Taken from Postcode.nl Api Client
         if (!extension_loaded('curl'))

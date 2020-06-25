@@ -1,6 +1,6 @@
 {
-    "name": "memo/vatlayer-plugin",
-    "description": "Vatlater.com plugin",
+    "name": "memo/vatlayer6",
+    "description": "Vatlayer.com plugin",
     "version": "1.0.0",
     "type": "shopware-platform-plugin",
     "license": "MIT",
@@ -14,7 +14,7 @@
         "shopware/core": "6.*"
     },
     "extra": {
-        "shopware-plugin-class": "Memo\\VatlayerPlugin\\memoVatlayerPlugin",
+        "shopware-plugin-class": "Memo\\Vatlayer\\MemoVatlayer6",
         "label": {
             "de-DE": "Vatlayer.com VatID check",
             "en-GB": "Vatlayer.com VatID check"
@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Memo\\VatlayerPlugin\\": "src/"
+            "Memo\\Vatlayer\\": "src/"
         }
     }
 }
