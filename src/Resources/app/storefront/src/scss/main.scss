@@ -1,11 +1,1 @@
-.vatlayer ~ .alert {
-    display: none;
-}
-
-.alert button.close {
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1.25rem;
-}
+@import 'base'
