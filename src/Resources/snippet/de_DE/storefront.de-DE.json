@@ -1,8 +1,10 @@
 {
-    "memo-postcodenl": {
-        "autocomplete": {
-            "label": "Addresse",
-            "placeholder": "Ort, Strasse oder Postleitzahl..."
+    "memo-vatlayer": {
+        "valid": "Validiert als \"%company%\"",
+        "error": {
+            "database": "Wir konnten Ihre Umsatzsteuer-ID derzeit nicht validieren",
+            "format": "Ungültiges Format der Umsatzsteuer-ID",
+            "invalid": "Ihre Umsatzsteuer-ID ist ungültig"
         }
     }
 }

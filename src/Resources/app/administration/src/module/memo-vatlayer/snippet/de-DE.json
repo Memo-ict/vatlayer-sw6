@@ -1,0 +1,16 @@
+{
+    "memo-vatlayer": {
+        "general": {
+            "title": "Vatlayer",
+            "description": "Vatlayer Einstellungen"
+        },
+        "api": {
+            "testButton": "Test API Zugangsdaten",
+            "dashboardButton": "Holen Sie sich Ihre API Zugangsdaten von Ihrem Vatlayer Dashboard",
+            "credentials": {
+                "invalid": "Sie haben keinen API Zugang. Bitte überprüfen Sie die API Zugangsdaten in Ihrem Vatlayer Konto.",
+                "valid": "Ihre API Zugangsdaten sind gültig."
+            }
+        }
+    }
+}

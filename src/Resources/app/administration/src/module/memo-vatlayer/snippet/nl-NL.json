@@ -1,0 +1,16 @@
+{
+    "memo-vatlayer": {
+        "general": {
+            "title": "Vatlayer",
+            "description": "Vatlayer instellingen"
+        },
+        "api": {
+            "testButton": "Test API Credentials",
+            "dashboardButton": "Haal uw API credentials op via uw Vatlayer dashboard",
+            "credentials": {
+                "invalid": "Je hebt geen toegang tot de API. Controleer de API credentials in uw Vatlayer account.",
+                "valid": "Uw API credentials zijn geldig."
+            }
+        }
+    }
+}

@@ -1,8 +1,10 @@
 {
-    "memo-postcodenl": {
-        "autocomplete": {
-            "label": "Address",
-            "placeholder": "Start by typing your city, streetname, or zipcode"
+    "memo-vatlayer": {
+        "valid": "Validated as \"%company%\"",
+        "error": {
+            "database": "We were unable to validate your VAT ID at this time",
+            "format": "Invalid VAT ID format",
+            "invalid": "Your VAT ID is invalid"
         }
     }
 }

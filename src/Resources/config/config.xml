@@ -11,6 +11,9 @@
             <label lang="en-GB">API Key</label>
             <label lang="nl-NL">API Key</label>
         </input-field>
+        <component name="memo-vatlayer-api-credentials">
+            <name>MemoVatlayerApiCredentials</name>
+        </component>
     </card>
     <card>
         <title>Shop Settings</title>
