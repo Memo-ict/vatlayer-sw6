@@ -24,8 +24,8 @@ class StorefrontController extends SwStorefrontController
     }
 
     /**
-     * @Route("widget/memo/vatlayer/check-id}",
-     *         name="storefront.memo.vatlayer.validate", methods={"POST"},
+     * @Route("widget/memo/vatlayer/check-id",
+     *         name="frontend.memo.vatlayer.validate", methods={"POST"},
      *         defaults={"auth_required"=false})
      */
     public function validate(RequestDataBag $request, Context $context): JsonResponse
