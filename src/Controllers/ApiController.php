@@ -50,15 +50,18 @@ class ApiController extends AbstractController
             $this->vatlayerService->setApiKey($apiKey);
             $this->vatlayerService->rateList();
 
-            return $this->json([
-                'valid' => true,
-                'message' => 'memo-vatlayer.api.credentials.valid'
-            ]);
         } catch (\Exception $e) {
-            return $this->json([
-                'valid' => false,
-                'message' => 'memo-vatlayer.api.credentials.invalid'
-            ]);
+            if($e->getCode() === 101) {
+                return $this->json([
+                    'valid' => false,
+                    'message' => 'memo-vatlayer.api.credentials.invalid'
+                ]);
+            } 
         }
+
+        return $this->json([
+            'valid' => true,
+            'message' => 'memo-vatlayer.api.credentials.valid'
+        ]);
     }
 }
