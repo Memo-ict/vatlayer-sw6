@@ -6,7 +6,7 @@ import ElementLoadingIndicatorUtil from 'src/utility/loading-indicator/element-l
 export default class VatlayerPlugin extends Plugin {
     static options = {
         url: window.router['frontend.memo.vatlayer.validate'],
-        csrfToken: ''
+        csrfToken: '',
     }
 
     init() {
@@ -70,7 +70,7 @@ export default class VatlayerPlugin extends Plugin {
         }
 
         const data = {
-            vatId: this.el.value
+            vatId: this.el.value,
         };
 
         if (window.csrf.enabled && window.csrf.mode === 'twig') {
