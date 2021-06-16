@@ -1,8 +1,13 @@
 {
-    "memo-postcodenl": {
-        "autocomplete": {
-            "label": "Adres",
-            "placeholder": "Begin met uw postcode, plaats of straat"
+    "memo-vatlayer": {
+        "valid": "%company%",
+        "error": {
+            "database": "We waren niet in staat om uw BTW-ID op dit moment te valideren",
+            "format": "Ongeldig BTW-ID-formaat",
+            "invalid": "Uw BTW-ID is ongeldig"
+        },
+        "api-error": {
+            "106": "Rate limiet overschreden. Wacht een paar seconden voordat u het opnieuw probeert"
         }
     }
 }

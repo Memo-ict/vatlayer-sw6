@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "shopware/core": "6.*"
+        "shopware/core": "^6.1.5",
+        "ext-curl": "*"
     },
     "extra": {
         "shopware-plugin-class": "Memo\\Vatlayer\\MemoVatlayer6",

@@ -1,55 +1,24 @@
 {% sw_extends '@Storefront/storefront/component/address/address-form.html.twig' %}
 
-{% block component_address_form_company_vatId %}
-    <div class="form-group col-md-6">
-        {% if formViolations.getViolations("/vatId") is not empty %}
-            {% set violationPath = "/vatId" %}
-        {% elseif formViolations.getViolations("/#{prefix}/vatId") is not empty %}
-            {% set violationPath = "/#{prefix}/vatId" %}
-        {% endif %}
+{% block component_address_form_company_vatId_label %}
+    <label class="form-label"
+           for="{{ prefix }}vatId">
+        {{ "address.companyVatLabel"|trans|sw_sanitize }}{% if shopware.config.MemoVatlayer6.config.vatIdRequired %}{{ "general.required"|trans|sw_sanitize }}{% endif %}
+    </label>
+{% endblock %}
 
-        {% block component_address_form_company_vatId_label %}
-            <label class="form-label"
-                   for="{{ prefix }}vatId">
-                {{ "address.companyVatLabel"|trans|sw_sanitize }}{% if shopware.config.MemoVatlayer6.config.vatIdRequired %}{{ "general.required"|trans|sw_sanitize }}{% endif %}
-            </label>
-        {% endblock %}
+{% block component_address_form_company_vatId_input %}
+    {% set vatlayerOptions = {
+        csrfToken: sw_csrf("frontend.memo.vatlayer.validate", {"mode": "token"})
+    } %}
 
-        {% block component_address_form_company_vatId_input %}
-            <div class="vatlayer" data-base-url="{{ app.request.baseUrl }}">
-                <input type="text"
-                       class="form-control{% if violationPath %} is-invalid{% endif %}"
-                       id="{{ prefix }}vatId"
-                       {% if shopware.config.MemoVatlayer6.config.vatIdRequired %}required="required"{% endif %}
-                       placeholder="{{ "address.companyVatPlaceholder"|trans|striptags }}{% if shopware.config.MemoVatlayer6.config.vatIdRequired %}{{ "general.required"|trans|sw_sanitize }}{% endif %}"
-                       name="{{ prefix }}[vatId]"
-                       value="{{ data.get('vatId') }}">
-            </div>
-        {% endblock %}
-
-
-        {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
-            type: "danger",
-            content: ""|trans|sw_sanitize
-        } %}
-        {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
-            type: "warning",
-            content: ""|trans|sw_sanitize
-        } %}
-        {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
-            type: "info",
-            content: ""|trans|sw_sanitize
-        } %}
-        {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
-            type: "success",
-            content: ""|trans|sw_sanitize,
-            dismissible: true
-        } %}
-
-        {% block component_address_form_company_vatId_input_error %}
-            {% if violationPath %}
-                {% sw_include '@Storefront/storefront/utilities/form-violation.html.twig' %}
-            {% endif %}
-        {% endblock %}
-    </div>
+    <input type="text"
+           class="form-control{% if violationPath %} is-invalid{% endif %}"
+           id="{{ prefix }}vatId"
+           {% if shopware.config.MemoVatlayer6.config.vatIdRequired %}required="required"{% endif %}
+           data-vatlayer="true"
+           data-vatlayer-options="{{ vatlayerOptions | json_encode }}"
+           placeholder="{{ "address.companyVatPlaceholder"|trans|striptags }}{% if shopware.config.MemoVatlayer6.config.vatIdRequired %}{{ "general.required"|trans|sw_sanitize }}{% endif %}"
+           name="{{ prefix }}[vatId]"
+           value="{{ data.get('vatId') }}">
 {% endblock %}

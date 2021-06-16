@@ -1,0 +1,36 @@
+.vatlayer-container {
+    position: relative;
+
+    [data-vatlayer]:focus + .vatlayer-message:not(.alert-success) {
+        display: none;
+    }
+
+    .vatlayer-loader, .vatlayer-message {
+        position:absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        user-select: none;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        padding: .5rem .75rem;
+    }
+
+    .vatlayer-loader {
+        margin: .4rem .4rem 0 0;
+    }
+
+    .vatlayer-message {
+        font-size: .7rem;
+        margin: 1px;
+        background-color: unset;
+        max-width: calc(100% - 120px);
+
+        &-content {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

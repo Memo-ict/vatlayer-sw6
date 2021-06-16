@@ -6,9 +6,15 @@ class VatlayerApiService extends ApiService {
         super(httpClient, loginService, apiEndpoint);
     }
 
-    checkCredentials() {
+    checkCredentials(data = {apiKey: null}) {
         return this.httpClient
-            .get(`${this.getApiBasePath()}/check-credentials`, {headers: this.getBasicHeaders()})
+            .post(
+                `${this.getApiBasePath()}/check-credentials`,
+                JSON.stringify(data),
+                {
+                    headers: this.getBasicHeaders()
+                }
+            )
             .then((response) => {
                 return ApiService.handleResponse(response);
             });

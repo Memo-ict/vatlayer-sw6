@@ -5,14 +5,29 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <!-- Vaylayer Service -->
         <service id="Memo\Vatlayer\Services\VatlayerService">
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
         </service>
 
-        <service id="Memo\Vatlayer\Controllers\VatlayerController" public="true">
+        <!-- Controllers -->
+        <service id="Memo\Vatlayer\Controllers\ApiController" public="true">
             <argument type="service" id="Memo\Vatlayer\Services\VatlayerService" />
+
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
         </service>
 
+        <service id="Memo\Vatlayer\Controllers\StorefrontController" public="true">
+            <argument type="service" id="Memo\Vatlayer\Services\VatlayerService" />
+
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <!-- Snippets -->
         <service id="Memo\Vatlayer\Resources\snippet\de_DE\SnippetFile_de_DE" public="true">
             <tag name="shopware.snippet.file"/>
         </service>
