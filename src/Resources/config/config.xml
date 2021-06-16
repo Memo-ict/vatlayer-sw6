@@ -20,9 +20,12 @@
         <title lang="de-DE">Shop Einstellungen</title>
         <input-field type="bool">
             <name>vatIdRequired</name>
-            <label lang="de-DE">VAT-ID als Pflichtfeld behandeln</label>
-            <label lang="en-GB">VAT ID required</label>
-            <label lang="nl-NL">BTW ID verplicht</label>
+            <label>VAT ID required (6.3 and lower)</label>
+            <label lang="de-DE">VAT-ID als Pflichtfeld behandeln (6.3 and lower)</label>
+            <label lang="nl-NL">BTW ID verplicht (6.3 and lower)</label>
+            <helpText>This option is only available for Shopware 6.3 and lower. For Shopware 6.4+ please use the built-in Shopware setting under "Settings > Login / Registration"</helpText>
+            <helpText lang="de-DE">Diese Option ist nur für Shopware 6.3 und niedriger verfügbar. Für Shopware 6.4+ verwenden Sie bitte die eingebaute Shopware-Einstellung unter "Einstellungen > Login / Registrierung".</helpText>
+            <helpText lang="nl-NL">Deze optie is alleen beschikbaar voor Shopware 6.3 en lager. Voor Shopware 6.4+ gebruikt u de ingebouwde Shopware instelling onder "Instellingen > Login / registratie".</helpText>
         </input-field>
     </card>
 </config>
