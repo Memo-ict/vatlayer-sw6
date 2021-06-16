@@ -1,8 +1,7 @@
 import Plugin from 'src/plugin-system/plugin.class';
-import DomAccess from 'src/helper/dom-access.helper';
 import Debouncer from 'src/helper/debouncer.helper';
 import HttpClient from 'src/service/http-client.service';
-// import ElementLoadingIndicatorUtil from 'src/utility/loading-indicator/element-loading-indicator.util';
+import ElementLoadingIndicatorUtil from 'src/utility/loading-indicator/element-loading-indicator.util';
 
 export default class VatlayerPlugin extends Plugin {
     static options = {
@@ -22,9 +21,14 @@ export default class VatlayerPlugin extends Plugin {
         this.el.insertAdjacentElement('beforebegin', this._container);
         this._container.insertAdjacentElement('afterbegin', this.el);
 
+        this._loader = document.createElement('div');
+        this._loader.classList.add('vatlayer-loader');
+        this._container.insertAdjacentElement('beforeend', this._loader);
+
         this._message = document.createElement('div');
         this._message.classList.add('vatlayer-message');
         this._container.insertAdjacentElement('beforeend', this._message);
+
         this._message_content = document.createElement('div');
         this._message_content.classList.add('vatlayer-message-content');
         this._message.insertAdjacentElement('beforeend', this._message_content);
@@ -34,11 +38,14 @@ export default class VatlayerPlugin extends Plugin {
         const data = this._getRequestData();
 
         if(data) {
+            ElementLoadingIndicatorUtil.create(this._loader);
             this._client.post(this.options.url, JSON.stringify(data), content => this._parseRequest(JSON.parse(content)));
         }
     }
 
     _parseRequest(data) {
+        ElementLoadingIndicatorUtil.remove(this._loader);
+
         this.el.classList.forEach(className => {
             if(className.indexOf('alert') >= 0) {
                 this.el.classList.remove(className);
