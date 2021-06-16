@@ -1,10 +1,13 @@
 {
     "memo-vatlayer": {
-        "valid": "Validated as \"%company%\"",
+        "valid": "%company%",
         "error": {
             "database": "We were unable to validate your VAT ID at this time",
             "format": "Invalid VAT ID format",
             "invalid": "Your VAT ID is invalid"
+        },
+        "api-error": {
+            "106": "Rate limit exceeded. Please wait a few seconds before trying again"
         }
     }
 }

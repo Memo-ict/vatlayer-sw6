@@ -8,35 +8,17 @@
 {% endblock %}
 
 {% block component_address_form_company_vatId_input %}
-    hi
+    {% set vatlayerOptions = {
+        csrfToken: sw_csrf("frontend.memo.vatlayer.validate", {"mode": "token"})
+    } %}
+
     <input type="text"
            class="form-control{% if violationPath %} is-invalid{% endif %}"
            id="{{ prefix }}vatId"
            {% if shopware.config.MemoVatlayer6.config.vatIdRequired %}required="required"{% endif %}
+           data-vatlayer="true"
+           data-vatlayer-options="{{ vatlayerOptions | json_encode }}"
            placeholder="{{ "address.companyVatPlaceholder"|trans|striptags }}{% if shopware.config.MemoVatlayer6.config.vatIdRequired %}{{ "general.required"|trans|sw_sanitize }}{% endif %}"
            name="{{ prefix }}[vatId]"
            value="{{ data.get('vatId') }}">
 {% endblock %}
-
-{% block component_address_form_company_vatId_input_error %}
-    {{ parent() }}
-
-    {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
-        type: "danger",
-        content: ""|trans|sw_sanitize
-    } %}
-    {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
-        type: "warning",
-        content: ""|trans|sw_sanitize
-    } %}
-    {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
-        type: "info",
-        content: ""|trans|sw_sanitize
-    } %}
-    {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
-        type: "success",
-        content: ""|trans|sw_sanitize,
-        dismissible: true
-    } %}
-{% endblock %}
-

@@ -1,11 +1,29 @@
-.vatlayer ~ .alert {
-    display: none;
-}
+.vatlayer-container {
+    position: relative;
 
-.alert button.close {
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1.25rem;
+    [data-vatlayer]:focus + .vatlayer-message:not(.alert-success) {
+        display: none;
+    }
+
+    .vatlayer-message {
+        position:absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        font-size: .7rem;
+        user-select: none;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        padding: .5rem .75rem;
+        margin: 1px;
+        background-color: unset;
+        max-width: calc(100% - 120px);
+
+        &-content {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
 }

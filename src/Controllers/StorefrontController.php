@@ -26,7 +26,7 @@ class StorefrontController extends SwStorefrontController
     /**
      * @Route("widget/memo/vatlayer/check-id",
      *         name="frontend.memo.vatlayer.validate", methods={"POST"},
-     *         defaults={"auth_required"=false})
+     *         defaults={"XmlHttpRequest"=true})
      */
     public function validate(RequestDataBag $request, Context $context): JsonResponse
     {
@@ -36,6 +36,7 @@ class StorefrontController extends SwStorefrontController
 
         try {
             $response = $this->vatlayerService->validate($vatId);
+            $response['isValid'] = false;
 
             if ($response['database'] !== "ok") {
                 $message = [
@@ -53,6 +54,7 @@ class StorefrontController extends SwStorefrontController
                     "message" => $this->trans('memo-vatlayer.error.invalid')
                 ];
             } else {
+                $response['isValid'] = true;
                 $message = [
                     "type" => "success",
                     "message" => $this->trans('memo-vatlayer.valid', [
@@ -61,7 +63,14 @@ class StorefrontController extends SwStorefrontController
                 ];
             }
         } catch (\Exception $exception) {
-            $message = ["type" => "warning", "message" => $exception->getMessage()];
+            switch($exception->getCode()) {
+                default:
+                    $message = ["type" => "warning", "message" => $exception->getMessage()];
+                    break;
+                case 106:
+                    $message = ['type' => "warning", "message" => $this->trans('memo-vatlayer.api-error.106')];
+                    break;
+            }
         }
 
         $response['message'] = $message;
