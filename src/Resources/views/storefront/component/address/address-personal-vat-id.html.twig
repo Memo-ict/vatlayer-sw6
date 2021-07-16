@@ -1,4 +1,4 @@
-{% sw_extends '@@Storefront/storefront/component/address/address-personal-vat-id.html.twig' %}
+{% sw_extends '@Storefront/storefront/component/address/address-personal-vat-id.html.twig' %}
 
 {% block component_address_form_company_vatId_input %}
     {% set vatlayerOptions = {
@@ -11,7 +11,7 @@
            data-vatlayer="true"
            data-vatlayer-options="{{ vatlayerOptions | json_encode }}"
            name="vatIds[]"
-        {% if editMode == false and config('core.loginRegistration.vatIdFieldRequired') %}
+        {% if editMode == false and Shopware.config('core.loginRegistration.vatIdFieldRequired') %}
             required="required"
             data-form-validation-equal="vatIds"
         {% endif %}
