@@ -48,7 +48,7 @@ class VatlayerService
     protected function initCurlHandler()
     {
         if (!extension_loaded('curl')) {
-            throw new CurlNotLoadedException('Cannot use Vatlayer service, the server needs to have the PHP `cURL` extension installed.');
+            throw new \Exception('Cannot use Vatlayer service, the server needs to have the PHP `cURL` extension installed.');
         }
 
         $this->curlHandler = curl_init();
