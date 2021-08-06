@@ -92,7 +92,7 @@ class VatlayerService
         $curlError = curl_error($this->curlHandler);
         $curlErrorNr = curl_errno($this->curlHandler);
         if ($curlError !== '') {
-            throw new \CurlException(vsprintf('Connection error number `%s`: `%s`.', [$curlErrorNr, $curlError]));
+            throw new \Exception(vsprintf('Connection error number `%s`: `%s`.', [$curlErrorNr, $curlError]));
         }
 
         // Parse the response as JSON, will be null if not parsable JSON.
