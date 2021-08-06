@@ -1,7 +1,7 @@
 {
     "name": "memo/vatlayer6",
     "description": "Vatlayer.com plugin",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "authors": [
